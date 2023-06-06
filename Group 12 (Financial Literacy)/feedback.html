@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Financial Worksheet and Budget Planner</title>
+    <link rel="stylesheet" type="text/css" href="style.css/feedback.css">
+</head>
+<body>
+  
+    
+    <h1>Feedback Survey</h1>
+   
+  <form id="feedbackForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br><br>
+
+    <label for="rating">Overall satisfaction:</label>
+    <select id="rating" required>
+      <option value="" disabled selected>Select a rating</option>
+      <option value="satisfied">Satisfied</option>
+      <option value="good">Good</option>
+      <option value="average">Average</option>
+      <option value="poor">Poor</option>
+    </select><br><br>
+
+    <label for="recommend">Likelihood to recommend:</label>
+    <select id="recommend" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="veryLikely">Very Likely</option>
+      <option value="likely">Likely</option>
+      <option value="neutral">Neutral</option>
+      <option value="unlikely">Unlikely</option>
+      <option value="veryUnlikely">Very Unlikely</option>
+    </select><br><br>
+
+    <label for="knowledge">Knowledge gained:</label>
+    <select id="knowledge" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="aLot">A lot</option>
+      <option value="some">Some</option>
+      <option value="notMuch">Not much</option>
+      <option value="none">None</option>
+    </select><br><br>
+
+    <label for="content">Quality of content:</label>
+    <select id="content" required>
+      <option value="" disabled selected>Select a rating</option>
+      <option value="excellent">Excellent</option>
+      <option value="good">Good</option>
+      <option value="average">Average</option>
+      <option value="poor">Poor</option>
+    </select><br><br>
+
+    <label for="layout">Website layout:</label>
+    <select id="layout" required>
+      <option value="" disabled selected>Select a rating</option>
+      <option value="appealing">Appealing</option>
+      <option value="userFriendly">User-friendly</option>
+      <option value="average">Average</option>
+      <option value="cluttered">Cluttered</option>
+    </select><br><br>
+
+    <label for="improvements">Suggestions for improvements:</label><br>
+    <textarea id="improvements" rows="4" cols="50"></textarea><br><br>
+
+    <label for="comments">Additional comments:</label><br>
+    <textarea id="comments" rows="4" cols="50"></textarea><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+    
+    <script src="script.js/feedback.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+
+
+body{
+    background: rgb(100, 129, 129);
+}
+.loginsection{
+    
+    margin: 80px;
+    margin-left:  55% ;
+    width: 400px;
+    height: 500px;
+    border: greenyellow;
+    background: rgb(26, 75, 52);
+}
+.login{
+    padding-bottom: 100px;
+   padding: 40% 70px ;
+  
+}
+.inputs{
+    font-size: 15px;
+    color: white;
+    background: rgb(26, 75, 52);
+    justify-content: center;
+    outline: 0 ;
+    border: 0;
+    padding: 10px 0px;
+    width: 250px;
+   border-bottom: 1px solid white;
+   transition: 0.3s;
+}
+.inputs:hover{
+    font-size:17px ;
+}
+::placeholder{
+    font-size: 15px;
+    color: white;
+}
+.icondiv{
+position: absolute;
+top: 6px;
+left: 63%;
+    
+}
+#logoUser{
+   width: 200px;
+   height: 200px;
+}
+#forgot{
+    position: absolute;
+    left: 71%;
+    top: 56%;
+    color: white;
+}
+.logbtn{
+    border:thick;
+    color: antiquewhite;
+    background: rgb(9, 9, 22);
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    transition: 0.4s;
+}
+.logbtn:hover{
+    font-size: larger;
+    background:rgb(34, 34, 65) ;
+
+}
+.secondDiv{
+    position:absolute;
+    width: 600px;
+    height: 500px;
+    margin: -43% 10%;
+    background: rgb(181, 196, 189);
+    text-align: center;
+   
+}
+#title{
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+}
+#returnhome{
+    color: wheat;
+}
+#create{
+    color: white;
+    text-decoration: 0;
+    width: 100%;
+    text-align: center;
+    transition: 0.6s;
+}
+#create:hover{
+    font-size: 20px;
+    text-decoration: underline;
+}
+#logo{
+    width: 200px;
+}
+.error{
+    position: absolute;
+    color: red;
+    top: 35%;
+    left: 60%;
+}
+#checkbox{
+    color: aliceblue;
+}
+#Scontainer{
+    padding-bottom: 100px;
+    margin-bottom: 30px;
+}
+.maincontainer{
+    vertical-align: top;
+}
+
+
+@media screen and (max-width: 829px) {
+    .loginsection{
+        margin-left: 10%;
+        width: 300px;
+        height: 400px;
+        
+    }
+    .login{
+        padding: 10% 70px ;
+      
+    }
+    #logoUser{
+        width: 100px;
+        height: 100px;
+     }
+     .icondiv{
+        position: absolute;
+        top: 45px;
+        left: 30%;
+            
+        }
+    .inputs{
+        width: 140px;
+    }
+    .secondDiv{
+        margin-top: -20%;
+        margin-left: 10%;
+        width: 300px;
+        height: 450px;
+    }
+    #logo{
+        width: 100px;
+    }
+    .error{
+        position: absolute;
+        color: red;
+        left: 30%;
+    }
+
+
+
+
+}
+@media screen and (min-width: 830px) and (max-width:1116px) {
+    .loginsection{
+        margin-left: 50%;
+        width: 400px;
+        height: 500px;
+        
+    }
+    .error{
+        position: absolute;
+        color: red;
+        top: 35%;
+        left: 60%;
+    }
+    .login{
+        padding-bottom: 100px;
+        padding: 30% 70px ;
+       
+      
+    }
+    #logoUser{
+        width: 200px;
+        height: 200px;
+     }
+     .icondiv{
+        position: absolute;
+        top: 16px;
+        left: 60%;
+            
+        }
+    .inputs{
+        width: 240px;
+    }
+    .secondDiv{
+        margin-top: -52.5%;
+        margin-left: 10%;
+        width: 390px;
+        height: 500px;
+    }
+    #logo{
+        width: 150px;
+    }
+
+
+
+
+}
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Financial Calculators</title>
+  <link rel="stylesheet" type="text/css" href="style.css/calculator.css">
+</head>
+<body>
+  <h1>Financial Calculators</h1>
+
+  <h2>Budget Calculator</h2>
+  <label for="income">Income:</label>
+  <input type="number" id="income" />
+  <label for="expenses">Expenses:</label>
+  <input type="number" id="expenses" />
+  <button onclick="calculateBudget()">Calculate</button>
+  <p id="budgetResult"></p>
+
+  <h2>Saving Calculator</h2>
+  <label for="initialAmount">Initial Amount:</label>
+  <input type="number" id="initialAmount" />
+  <label for="monthlySavings">Monthly Savings:</label>
+  <input type="number" id="monthlySavings" />
+  <label for="interestRate">Interest Rate:</label>
+  <input type="number" id="interestRate" />
+  <button onclick="calculateSaving()">Calculate</button>
+  <p id="savingResult"></p>
+
+  <h2>Investment Calculator</h2>
+  <label for="investmentAmount">Investment Amount:</label>
+  <input type="number" id="investmentAmount" />
+  <label for="investmentReturn">Expected Return (%):</label>
+  <input type="number" id="investmentReturn" />
+  <label for="investmentYears">Investment Years:</label>
+  <input type="number" id="investmentYears" />
+  <button onclick="calculateInvestment()">Calculate</button>
+  <p id="investmentResult"></p>
+
+  <h2>Loan Repayment Calculator</h2>
+  <label for="loanAmount">Loan Amount:</label>
+  <input type="number" id="loanAmount" />
+  <label for="interestRate">Interest Rate:</label>
+  <input type="number" id="loanInterestRate" />
+  <label for="loanYears">Loan Years:</label>
+  <input type="number" id="loanYears" />
+  <button onclick="calculateLoan()">Calculate</button>
+  <p id="loanResult"></p>
+
+  <script src="script.js/calculator.js"></script>
+</body>
+</html>

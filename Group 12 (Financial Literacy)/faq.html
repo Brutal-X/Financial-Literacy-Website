@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="webPages.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap">
+</head>
+<style>
+    
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ } 
+.Frequently{
+        padding: 100px;
+ }
+ body{
+    font-family: sans-serif;
+    background: #19474b;
+    color:#fff ;
+ }
+section{
+    min-height: 100vh;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    font-size: 1rem ;
+    margin: 2rem 0rem;
+
+}
+.faq{
+    max-width: 700px;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+
+}
+.question{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.question h3{
+    font-size: 1.2rem; 
+}
+.answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.4rem ease;
+}
+.answer p{
+    padding: 1rem;
+    line-height: 1.6;
+    font-size: 1.4rem;
+}
+.faq.active .answer{
+    max-height: 300px;
+    animation: fade 1s ease-in-out;
+}
+/* .faq.active i{
+    transform: rotate(180deg);
+}
+i{
+    transition: transform 0.5 ease-in;
+}*/
+@keyframes fade{
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px) ;
+    }
+}
+
+
+</style>
+<body>
+    <nav>
+        <div class = "container nav_container">
+            <a href="indexlog.php" class="nav_log"><img src="./images/logo.png" class="avatars" alt="">Financial Literacy 101</a>
+            <ul class="nav_items">
+                <li><a href="bloglog.php">Blog</a></li>
+                <li><a href="aboutlog.php">About</a></li>
+                <li><a href="contactslog.php">Contacts</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <!--<li><a href="signin.html">sign in</a></li>-->
+                <li class="nav_profile">
+                    <div class="avatar">
+                        <img src="./images/menu.png" alt="growing tree">
+                    </div>    
+                    <ul>
+                        <li><a href="login.php">Login</a></li>
+                        <li><a href="register.php">SignUp</a></li>
+                    </ul> 
+                </li>
+            </ul>
+            <button id="open_nav-btn"><i class="uil uil-bars"></i></button>
+            <button id="close_nav-btn"><i class="uil uil-multiply"></i></button>
+        </div>
+    </nav>
+
+    <section class="Frequently">
+        <h1>Frequently Asked Questions</h1>
+        <div class="faq">
+            <div class="question">
+                <h3>Do you give certificate of completion ? <i class="uil uil-angle-down" id="angle-down"></i></h3>
+            </div>
+            <div class="answer">
+                <p>No, the purpose of our website Financial Literacy 101 is the give our users financial literacy knowledge, skills and confidence to make effective and well inform financial decisions.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Are your services free ? <i class="uil uil-angle-down" id="angle-down"></i></h3>
+            </div>
+            <div class="answer">
+                <p>Most of our content is free because we aim to educate our clientel so we can have an economical and social stable self sufficient society.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>How often do you update the information in your website? <i class="uil uil-angle-down" id="angle-down"></i></h3>
+            </div>
+            <div class="answer">
+                <p>We frequently update our information so that our clientel get the latest information.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>Do you draw business plans for your subscribers? <i class="uil uil-angle-down" id="angle-down"></i></h3>
+            </div>
+            <div class="answer">
+                <p>Perhaps in the near future we will provide such a service but as of now we don't draw any business plans or anything of that nature. To get an idea of how a business plan should be structured follow this <a href="https://plan.planbuildr.com/business-plan/edit/7862666158653159364a6b3d?bpSection=cover&bpSubSection=design">link.</a></p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>Do I need to be a subscriber to get your services? <i class="uil uil-angle-down" id="angle-down"></i></h3>
+            </div>
+            <div class="answer">
+                <p>To reep full benefits and knowledge from our website financial literacy 101 you must indeed be a subscriber. Otherwise we offer our services to everyone who set their eyes on our url.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>Do you provide fund to small businesses? <i class="uil uil-angle-down" id="angle-down"></i></h3>
+            </div>
+            <div class="answer">
+                <p>No, we do not fund small business but rather inform small medium and micro enterprises (SMMEs) of ways they can be funded such as crowdfunding</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>Where can I get financial help to grow my business ? <i class="uil uil-angle-down" id="angle-down"></i></h3>
+            </div>
+            <div class="answer">
+                <p>There are numerous way to get financial help to grow your business. Before you can consider a loan first try these government programs which intend to help and groom particularly small businesses.
+                    <ul>
+                        <li>National Empowerment Fund (NEF) - support Broad-based Black Economic Empowerment (BBBEE)</li>
+                        <li>Industrial Development Corporation (IDC) - is a national development finance institution set up to promote economic growth and industrial development.</li>
+                        <li>Finfind - links SMEs who are seeking finance with appropriate lenders. </li>
+                        <li>SEDA (Small Enterprise Development Agency) - provides business development and support services for small enterprises through its national network. </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        const faqs = document.querySelectorAll(".faq");
+
+        faqs.forEach(faq =>{
+            faq.addEventListener("click", () =>{
+                faq.classList.toggle("active");
+            })
+        })
+    </script>
+
+
+
+
+</script>
+<footer>
+    <div class="footer_socials">
+        <a href="https://youtube.com" target="_blank"><i class="uil uil-youtube"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="uil uil-linkedin"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100092726551629" target="_blank"><i class="uil uil-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="uil uil-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="uil uil-instagram-alt"></i></a>
+    </div>
+    <div class="container footer_container">
+        <article>
+            <h4>Categories</h4>
+            <ul>
+                <li><a href="budget.html">Budgeting</a></li>
+                <li><a href="creditscore.html">Credit Score</a></li>
+                <li><a href="smme.html">Small Businesses</a></li>
+                <li><a href="savings.html">Savings&Retirement</a></li>
+                <li><a href="moneyMatters.html">Penny Tips</a></li>
+                <li><a href="technology.html">Tech&Trends</a></li>
+                <li><a href="invest.html">Future Plans</a></li>
+                <li><a href="loan.html">Loans</a></li>
+
+                
+            </ul>
+        </article>
+
+        <article>
+            <h4>Resources</h4>
+            <ul>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="loanquiz.html">Loan Quiz</a></li>
+                <li><a href="retirementquiz.html">Retirement Quiz</a></li>
+                <li><a href="smmesquiz.html">SMMEs Quiz</a></li>
+                <li><a href="techquiz.html">Tech Quiz</a></li>
+                <li><a href="budget.html">Budget Quiz</a></li>
+                <li><a href="savings.html">Savings</a></li>
+            </ul>
+        </article>
+
+        <article>
+            <h4>Site Information</h4>
+            <ul>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">Our Mission</a></li>
+            </ul>
+        </article>
+    </div>
+    <div class="footer_copyright">
+        <small>Copyright &copy; financial literacy 101</small>
+    </div>
+</footer>
+<script src="./script.js/main.js"></script>
+</body>
+</html>

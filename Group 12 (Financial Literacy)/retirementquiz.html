@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="webPages.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap">
+  <title>Retirement Quiz</title>
+  <style>
+    body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(241, 243, 247);
+}
+
+.wrapper {
+  width: 430px;
+  margin: 0 auto;
+  height: 100%;
+  padding-top: 60px;
+  margin-bottom: 40px;
+}
+
+#quiz {
+  background-color: #34495E;
+  padding-bottom: 60px;
+  width: 100%;
+  border-radius: 2%;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#quiz > h1 {
+  text-align: center;
+  padding-top: 25px;
+  font-size: 20px;
+}
+
+.questions {
+  font-size: 28px;
+  font-weight: 700;
+  font-style: italic;
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  padding: 20px;
+}
+
+.answers div {
+  padding: 10px 0 0 0;
+  font-size: 16px;
+}
+
+.answers div:hover {
+  cursor: pointer;
+  color: #FBCB43;
+}
+
+.answers {
+  padding: 0px 0 10px 0px;
+}
+
+.answers div {
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  border-top: 1px solid grey;
+}
+
+.answers div:first-child {
+  border: none;
+}
+
+.checker {
+  display: inline-block;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.correct, .false {
+  background-color: #109D59;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 4px;
+  float: left;
+  margin-left: 2px;
+  margin-top: 2px;
+}
+
+.false {
+  background-color: #DC4437;
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class = "container nav_container">
+        <a href="index.html" class="nav_log">Financial Literacy 101</a>
+        <ul class="nav_items">
+            <li><label for="BusinessFinances">Topics</label>
+                <select name="BusinessFinances" class="select">
+                <option href="budget.html" id="drop">Budgeting 101</option>
+                <option href="credit.html"  id="drop">Credit Score</option>
+                <option href="smme.html">SMMes</option>
+                <option href="invest.html">Investing</option>
+                <option href="savings.html">Savings & Retirement</option>
+                <option href="loan.html">Loans</option>
+
+            </select></a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="resources.html">resources</a></li>
+            <li><a href="contacts.html">contacts</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <!--<li><a href="signin.html">sign in</a></li>-->
+            <li class="nav_profile">
+                <div class="avatar">
+                    <img src="./images/twitter.png" alt="growing tree">
+                </div>    
+                <ul>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="register.php">SignUp</a></li>
+                </ul> 
+            </li>
+        </ul>
+        <button id="open_nav-btn"><i class="uil uil-bars"></i></button>
+        <button id="close_nav-btn"><i class="uil uil-multiply"></i></button>
+    </div>
+</nav>
+
+
+
+
+
+  <div class="wrapper">
+    <div id="quiz">
+      <h1>Retirement savings  quiz</h1>
+      
+      <p class="questions"></p>
+      
+      <div class="answers"></div>         
+      
+      <div class="checkAnswers">
+        <h3>Correct?</h3>
+        <div class="checker">
+
+        </div>
+      </div>
+    </div>
+  </div> 
+  <script>
+    window.onload = function () {
+  
+  var questionArea = document.getElementsByClassName('questions')[0],
+      answerArea   = document.getElementsByClassName('answers')[0],
+      checker      = document.getElementsByClassName('checker')[0],
+      current      = 0,
+  
+     // An object that holds all the questions + possible answers.
+     // In the array --> last digit gives the right answer position
+     allQuestions = {
+    'What is the definition of investing? ': ['Allocating resources to earn income or create positive benefits', 'Purchasing assets to decrease in value over time', 'Saving money in a bank account', 0],
+    'What is the primary goal of liquid funds?': ['To finance government projects and initiatives', 'To provide capital safety and liquidity', 'To offer fixed interest rates for long-term gains', 1],
+    'What percentage of the average wage earner\'s income does Social Security replace after retirement?': ['40%', '60%', '70%', '100%', 2],
+    'What percentage of their pre-retirement earnings do financial consultants recommend retirees to have for a comfortable retirement?': ['40%', '60%', '70%', '100%', 2],
+    'Why is it important not to rely solely on Social Security for retirement income?': ['Social Security payouts decrease over time.', 'It may burden your dependents financially.', 'It has limited access to funds before retirement.', 'All of the above.', 3],
+    'What is the primary difference between a pension fund and a provident fund?': ['Pension funds have more investment options.', 'Provident funds provide tax-free cash lump sums at retirement.', 'Pension funds require contributions from both the employer and the employee.', 'Provident funds offer a higher growth rate for retirement savings.', 1],
+    'What is the advantage of a unit trust fund for retirement savings?': ['It provides a fixed income during retirement.', 'It offers tax-free investment returns.', 'It allows unrestricted access to invested assets.', 'It guarantees a high return on investment.', 2]
+}
+
+
+  function loadQuestion(curr) {
+  // This function loads all the question into the questionArea
+  // It grabs the current question based on the 'current'-variable
+  
+    var question = Object.keys(allQuestions)[curr];
+    
+    questionArea.innerHTML = '';
+    questionArea.innerHTML = question;    
+  }
+  
+  function loadAnswers(curr) {
+  // This function loads all the possible answers of the given question
+  // It grabs the needed answer-array with the help of the current-variable
+  // Every answer is added with an 'onclick'-function
+  
+    var answers = allQuestions[Object.keys(allQuestions)[curr]];
+    
+    answerArea.innerHTML = '';
+    
+    for (var i = 0; i < answers.length -1; i += 1) {
+      var createDiv = document.createElement('div'),
+          text = document.createTextNode(answers[i]);
+      
+      createDiv.appendChild(text);      
+      createDiv.addEventListener("click", checkAnswer(i, answers));
+      
+      
+      answerArea.appendChild(createDiv);
+    }
+  }
+  
+  function checkAnswer(i, arr) {
+    // This is the function that will run, when clicked on one of the answers
+    // Check if givenAnswer is sams as the correct one
+    // After this, check if it's the last question:
+    // If it is: empty the answerArea and let them know it's done.
+    
+    return function () {
+      var givenAnswer = i,
+          correctAnswer = arr[arr.length-1];
+      
+      if (givenAnswer === correctAnswer) {
+        addChecker(true);             
+      } else {
+        addChecker(false);                        
+      }
+      
+      if (current < Object.keys(allQuestions).length -1) {
+        current += 1;
+        
+        loadQuestion(current);
+        loadAnswers(current);
+      } else {
+        questionArea.innerHTML = 'Done';
+        answerArea.innerHTML = '';
+      }
+                              
+    };
+  }
+  
+  function addChecker(bool) {
+  // This function adds a div element to the page
+  // Used to see if it was correct or false
+  
+    var createDiv = document.createElement('div'),
+        txt       = document.createTextNode(current + 1);
+    
+    createDiv.appendChild(txt);
+    
+    if (bool) {
+      
+      createDiv.className += 'correct';
+      checker.appendChild(createDiv);
+    } else {
+      createDiv.className += 'false';
+      checker.appendChild(createDiv);
+    }
+  }
+  
+  
+  // Start the quiz right away
+  loadQuestion(current);
+  loadAnswers(current);
+  
+};
+</script>
+
+<footer>
+  <div class="footer_socials">
+      <a href="htttps://youtube.com" target="_blank"><i class="uil uil-youtube"></i></a>
+      <a href="htttps://linkedin.com" target="_blank"><i class="uil uil-linkedin"></i></a>
+      <a href="htttps://facebook.com" target="_blank"><i class="uil uil-facebook"></i></a>
+      <a href="htttps://twitter.com" target="_blank"><i class="uil uil-twitter"></i></a>
+      <a href="htttps://instagram.com" target="_blank"><i class="uil uil-instagram-alt"></i></a>
+  </div>
+  <div class="container footer_container">
+      <article>
+          <h4>Categories</h4>
+          <ul>
+              <li><a href="budget.html">Budgeting</a></li>
+              <li><a href="creditscore.html">Credit Score</a></li>
+              <li><a href="smme.html">Small Businesses</a></li>
+              <li><a href="savings.html">Savings&Retirement</a></li>
+              <li><a href="policy.html">Rules&Regulations</a></li>
+              <li><a href="moneyMatters.html">Penny Tips</a></li>
+              <li><a href="technology.html">Tech&Trends</a></li>
+              <li><a href="invest.html">Future Plans</a></li>
+              <li><a href="loan.html">Loans</a></li>
+
+              
+          </ul>
+      </article>
+
+      <article>
+          <h4>Resources</h4>
+          <ul>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="loanquiz.html">Loan Quiz</a></li>
+              <li><a href="retirementquiz.html">Retirement Quiz</a></li>
+              <li><a href="smmesquiz.html">SMMEs Quiz</a></li>
+              <li><a href="techquiz.html">Tech Quiz</a></li>
+              <li><a href="budget.html">Budget Quiz</a></li>
+              <li><a href="savings.html">Savings</a></li>
+          </ul>
+      </article>
+
+      <article>
+          <h4>Site Information</h4>
+          <ul>
+              <li><a href="contacts.html">Contacts</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="about.html">Our Mission</a></li>
+          </ul>
+      </article>
+  </div>
+  <div class="footer_copyright">
+      <small>Copyright &copy; financial literacy 101</small>
+  </div>
+</footer>
+<script src="./script.js/main.js"></script>
+</body>
+</html>

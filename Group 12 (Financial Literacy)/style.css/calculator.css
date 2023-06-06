@@ -1,0 +1,40 @@
+body {
+    background-image: url('pexels-karolina-grabowska-7680692.jpg');
+    background-size: cover;
+  
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    color: blue;
+    font-weight: bold;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  input[type="number"] {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  p {
+    margin-top: 10px;
+    font-weight: bold;
+  }

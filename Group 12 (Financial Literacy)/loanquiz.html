@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap">
+  <link rel="stylesheet" href="webPages.css">
+</head>
+
+  <title>Loan Quiz</title>
+  <style>
+
+    body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(241, 243, 247);
+}
+
+.wrapper {
+  width: 430px;
+  margin: 0 auto;
+  height: 100%;
+  padding-top: 60px;
+  margin-bottom: 40px;
+}
+
+#quiz {
+  background-color: #34495E;
+  padding-bottom: 60px;
+  width: 100%;
+  border-radius: 2%;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#quiz > h1 {
+  text-align: center;
+  padding-top: 25px;
+  font-size: 20px;
+}
+
+.questions {
+  font-size: 28px;
+  font-weight: 700;
+  font-style: italic;
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  padding: 20px;
+}
+
+.answers div {
+  padding: 10px 0 0 0;
+  font-size: 16px;
+}
+
+.answers div:hover {
+  cursor: pointer;
+  color: #FBCB43;
+}
+
+.answers {
+  padding: 0px 0 10px 0px;
+}
+
+.answers div {
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  border-top: 1px solid grey;
+}
+
+.answers div:first-child {
+  border: none;
+}
+
+.checker {
+  display: inline-block;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.correct, .false {
+  background-color: #109D59;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 4px;
+  float: left;
+  margin-left: 2px;
+  margin-top: 2px;
+}
+
+.false {
+  background-color: #DC4437;
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class = "container nav_container">
+        <a href="index.html" class="nav_log">Financial Literacy 101</a>
+        <ul class="nav_items">
+            <li><label for="BusinessFinances">Topics</label>
+                <select name="BusinessFinances" class="select">
+                <option href="budget.html" id="drop">Budgeting 101</option>
+                <option href="credit.html"  id="drop">Credit Score</option>
+                <option href="smme.html">SMMes</option>
+                <option href="invest.html">Investing</option>
+                <option href="savings.html">Savings & Retirement</option>
+                <option href="loan.html">Loans</option>
+
+            </select></a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="resources.html">resources</a></li>
+            <li><a href="contacts.html">contacts</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <!--<li><a href="signin.html">sign in</a></li>-->
+            <li class="nav_profile">
+                <div class="avatar">
+                    <img src="./images/twitter.png" alt="growing tree">
+                </div>    
+                <ul>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="register.php">SignUp</a></li>
+                </ul> 
+            </li>
+        </ul>
+        <button id="open_nav-btn"><i class="uil uil-bars"></i></button>
+        <button id="close_nav-btn"><i class="uil uil-multiply"></i></button>
+    </div>
+</nav>
+
+
+
+  <div class="wrapper">
+    <div id="quiz">
+      <h1>Loan quiz</h1>
+      
+      <p class="questions"></p>
+      
+      <div class="answers"></div>         
+      
+      <div class="checkAnswers">
+        <h3>Correct?</h3>
+        <div class="checker">
+
+        </div>
+      </div>
+    </div>
+  </div> 
+  <script>
+    window.onload = function () {
+  
+  var questionArea = document.getElementsByClassName('questions')[0],
+      answerArea   = document.getElementsByClassName('answers')[0],
+      checker      = document.getElementsByClassName('checker')[0],
+      current      = 0,
+  
+     // An object that holds all the questions + possible answers.
+     // In the array --> last digit gives the right answer position
+     allQuestions = {
+    'What is a loan?': [
+        'The transfer of property, money, or other tangible assets in return for repayment plus interest',
+        'A gift of money or property without the expectation of repayment',
+        'An investment in a business with the expectation of future profits',
+        0
+    ],
+    'How do loans work?': [
+        'Loans can help individuals achieve important life goals by providing funds that would otherwise be unaffordable',
+        'Loans are only available for specific purposes and cannot be used to settle previous debt',
+        'Loans require collateral and have fixed repayment terms and interest rates',
+        0
+    ],
+    'What is a personal loan?': [
+        'A loan that can be used for various purposes and does not require collateral',
+        'A loan specifically used for purchasing a vehicle',
+        'A loan provided by the government for educational expenses',
+        0
+    ],
+    'What is an auto loan?': [
+        'A loan used to borrow the balance of a car\'s purchase price, with the car serving as collateral',
+        'A loan provided by the government for purchasing a home',
+        'A loan used for personal expenses with no specific purpose',
+        0
+    ],
+    'What are student loans?': [
+        'Loans designed to support the cost of higher education, offered by both the government and private lenders',
+        'Loans used for home renovation projects',
+        'Loans that require a credit check and have their own loan conditions and interest rates',
+        0
+    ],
+    'What is a mortgage loan?': [
+        'A loan specifically used for purchasing a home, with the home serving as collateral',
+        'A loan used to consolidate existing debts into a single loan',
+        'A loan used to build credit history',
+        0
+    ],
+    'What are payday loans?': [
+        'Short-term loans with high interest rates and fees, usually due on the borrower\'s next payday',
+        'Loans used to finance home improvements and repairs',
+        'Loans provided by the government for small business development',
+        0
+    ]
+}
+  
+      
+  function loadQuestion(curr) {
+  // This function loads all the question into the questionArea
+  // It grabs the current question based on the 'current'-variable
+  
+    var question = Object.keys(allQuestions)[curr];
+    
+    questionArea.innerHTML = '';
+    questionArea.innerHTML = question;    
+  }
+  
+  function loadAnswers(curr) {
+  // This function loads all the possible answers of the given question
+  // It grabs the needed answer-array with the help of the current-variable
+  // Every answer is added with an 'onclick'-function
+  
+    var answers = allQuestions[Object.keys(allQuestions)[curr]];
+    
+    answerArea.innerHTML = '';
+    
+    for (var i = 0; i < answers.length -1; i += 1) {
+      var createDiv = document.createElement('div'),
+          text = document.createTextNode(answers[i]);
+      
+      createDiv.appendChild(text);      
+      createDiv.addEventListener("click", checkAnswer(i, answers));
+      
+      
+      answerArea.appendChild(createDiv);
+    }
+  }
+  
+  function checkAnswer(i, arr) {
+    // This is the function that will run, when clicked on one of the answers
+    // Check if givenAnswer is sams as the correct one
+    // After this, check if it's the last question:
+    // If it is: empty the answerArea and let them know it's done.
+    
+    return function () {
+      var givenAnswer = i,
+          correctAnswer = arr[arr.length-1];
+      
+      if (givenAnswer === correctAnswer) {
+        addChecker(true);             
+      } else {
+        addChecker(false);                        
+      }
+      
+      if (current < Object.keys(allQuestions).length -1) {
+        current += 1;
+        
+        loadQuestion(current);
+        loadAnswers(current);
+      } else {
+        questionArea.innerHTML = 'Done';
+        answerArea.innerHTML = '';
+      }
+                              
+    };
+  }
+  
+  function addChecker(bool) {
+  // This function adds a div element to the page
+  // Used to see if it was correct or false
+  
+    var createDiv = document.createElement('div'),
+        txt       = document.createTextNode(current + 1);
+    
+    createDiv.appendChild(txt);
+    
+    if (bool) {
+      
+      createDiv.className += 'correct';
+      checker.appendChild(createDiv);
+    } else {
+      createDiv.className += 'false';
+      checker.appendChild(createDiv);
+    }
+  }
+  
+  
+  // Start the quiz right away
+  loadQuestion(current);
+  loadAnswers(current);
+  
+};
+
+</script>
+<footer>
+  <div class="footer_socials">
+      <a href="htttps://youtube.com" target="_blank"><i class="uil uil-youtube"></i></a>
+      <a href="htttps://linkedin.com" target="_blank"><i class="uil uil-linkedin"></i></a>
+      <a href="htttps://facebook.com" target="_blank"><i class="uil uil-facebook"></i></a>
+      <a href="htttps://twitter.com" target="_blank"><i class="uil uil-twitter"></i></a>
+      <a href="htttps://instagram.com" target="_blank"><i class="uil uil-instagram-alt"></i></a>
+  </div>
+  <div class="container footer_container">
+      <article>
+          <h4>Categories</h4>
+          <ul>
+              <li><a href="budget.html">Budgeting</a></li>
+              <li><a href="creditscore.html">Credit Score</a></li>
+              <li><a href="smme.html">Small Businesses</a></li>
+              <li><a href="savings.html">Savings&Retirement</a></li>
+              <li><a href="policy.html">Rules&Regulations</a></li>
+              <li><a href="moneyMatters.html">Penny Tips</a></li>
+              <li><a href="technology.html">Tech&Trends</a></li>
+              <li><a href="invest.html">Future Plans</a></li>
+              <li><a href="loan.html">Loans</a></li>
+
+              
+          </ul>
+      </article>
+
+      <article>
+          <h4>Resources</h4>
+          <ul>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="loanquiz.html">Loan Quiz</a></li>
+              <li><a href="retirementquiz.html">Retirement Quiz</a></li>
+              <li><a href="smmesquiz.html">SMMEs Quiz</a></li>
+              <li><a href="techquiz.html">Tech Quiz</a></li>
+              <li><a href="budget.html">Budget Quiz</a></li>
+              <li><a href="savings.html">Savings</a></li>
+          </ul>
+      </article>
+
+      <article>
+          <h4>Site Information</h4>
+          <ul>
+              <li><a href="contacts.html">Contacts</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="about.html">Our Mission</a></li>
+          </ul>
+      </article>
+  </div>
+  <div class="footer_copyright">
+      <small>Copyright &copy; financial literacy 101</small>
+  </div>
+</footer>
+<script src="./script.js/main.js"></script>
+</body>
+</html>
